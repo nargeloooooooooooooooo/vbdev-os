@@ -1,10 +1,13 @@
-# VBdev OS
+# VBdev OS 
 
 ![VBdev OS](https://img.shields.io/badge/VBdev-OS-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Platform](https://img.shields.io/badge/Platform-Mobile-orange)
 
 **VBdev OS** adalah sistem operasi open source berbasis terminal yang dioptimalkan untuk perangkat mobile. Dibangun dengan fokus pada efisiensi, kecepatan, dan pengalaman terminal murni.
+
+## NOTE:VBdev OS is still in the early stages and just getting developed
+## NOTE:VBdev masih dalam tahap perkermbangan,belum sepenuhnya utuh
 
 ## 🚀 Fitur Utama
 
@@ -28,8 +31,6 @@
 # Clone repository
 git clone https://github.com/nargeloooooooooooooooo/vbdev-os
 cd OS
-
-## NOTE:VBdev OS is still in the early stages and just getting developed
 
 # Build system
 make mobile_defconfig
