@@ -29,6 +29,8 @@
 git clone https://github.com/nargeloooooooooooooooo/vbdev-os
 cd OS
 
+## NOTE:VBdev OS is still in the early stages and just getting developed
+
 # Build system
 make mobile_defconfig
 make -j$(nproc)
