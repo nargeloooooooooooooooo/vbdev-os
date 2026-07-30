@@ -1,0 +1,55 @@
+name: VBdev OS Build
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        arch: [arm64, arm]
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          gcc-aarch64-linux-gnu \
+          gcc-arm-linux-gnueabihf \
+          build-essential \
+          flex bison \
+          libncurses-dev
+    
+    - name: Configure
+      run: make mobile_defconfig ARCH=${{ matrix.arch }}
+    
+    - name: Build Kernel
+      run: make kernel ARCH=${{ matrix.arch }} -j$(nproc)
+    
+    - name: Build Shell
+      run: make shell
+    
+    - name: Build Apps
+      run: make apps
+    
+    - name: Create Package
+      run: make package
+    
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: vbdev-os-${{ matrix.arch }}
+        path: vbdev-os-mobile.tar.gz
+    
+    - name: Run Tests
+      run: |
+        if [ -f "scripts/test.sh" ]; then
+          ./scripts/test.sh
+        fi
