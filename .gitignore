@@ -1,0 +1,44 @@
+# Build outputs
+*.o
+*.ko
+*.mod.c
+*.symvers
+*.order
+build/
+out/
+dist/
+
+# Kernel
+vmlinux
+System.map
+.config
+.config.old
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+vendor/
+
+# Logs
+*.log
+dmesg.txt
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# Packages
+*.deb
+*.rpm
+*.apk
